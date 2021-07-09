@@ -1,0 +1,29 @@
+<!-- BEGIN Main Content -->
+<div class="login-wrapper">
+    <!-- BEGIN Login Form -->
+    <form id="form-login" name="loginForm" method="post">
+        <h3>Login to your account</h3>
+        <hr/>
+        <div class="control-group">
+            <div class="controls">
+                <input type="text" placeholder="Email" class="input-block-level" name="email" ng-model="login.email" required focus/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="password" placeholder="Password" class="input-block-level" name="password" ng-model="login.password" required/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary input-block-level" ng-click="doLogin(login)">Sign In</button>
+            </div>
+        </div>
+        <hr/>
+        <p class="clearfix">
+            <a href="#/register" class="goto-register pull-right">Sign up now</a>
+        </p>
+    </form>
+    <!-- END Login Form -->
+</div>
+<!-- END Main Content -->

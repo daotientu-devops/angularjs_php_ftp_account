@@ -1,0 +1,92 @@
+<button type="button" class="close" ng-click="cancel();" title="Close">
+    <i class="fa fa-times-circle-o" style="margin: 10px; color: blue"></i>
+</button>
+<div class="modal-header">
+    <h3 class="modal-title">{{title}} [ID: {{account.id}}]</h3>
+</div>
+<div class="modal-body"><br/>
+    <form name="account_form" class="form-horizontal" role="form" novalidate>
+        <form-element label="NAME PROJECT" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" name="name_p" placeholder="NAME PROJECT" ng-model="account.name_p" focus/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="FOLDER" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" name="folder" placeholder="FOLDER" ng-model="account.folder"/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="URL" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" name="url" placeholder="URL" ng-model="account.url"/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="IP ADDRESS" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" name="ip_address" placeholder="IP ADDRESS" ng-model="account.ip_address"/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="DATABASE" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" name="dba" placeholder="DATABASE" ng-model="account.dba"/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="EMAIL" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" name="email" placeholder="EMAIL" ng-model="account.email"/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="USERNAME" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" name="username" placeholder="USERNAME" ng-model="account.username"/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="PASSWORD" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="password" class="form-control" name="password" placeholder="PASSWORD" ng-model="account.password"/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="DATE & TIME" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <input type="text" class="form-control" name="datetime" placeholder="DATE & TIME" ng-model="account.datetime"/>
+                </div>
+            </div>
+        </form-element>
+        <form-element label="NOTE" mod="account">
+            <div class="control-group">
+                <div class="controls">
+                    <textarea class="form-control" name="note" placeholder="NOTE" ng-model="account.note">{{account.note}}</textarea>
+                </div>
+            </div>
+        </form-element>
+        <div class="space"></div>
+        <div class="space-4"></div>
+        <div class="modal-footer">
+            <form-element label="">
+                <div class="text-right">
+                    <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>&nbsp;Cancel</a>
+                    <a ng-click="saveAccount(account);" ng-disabled="account_form.$invalid || enableUpdate" class="btn btn-sm btn-primary" type="submit">
+                        <i class="ace-icon fa fa-check"></i>&nbsp;{{buttonText}}
+                    </a>
+                </div>
+            </form-element>
+        </div>
+    </form>
+</div>

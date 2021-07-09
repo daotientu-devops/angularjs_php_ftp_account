@@ -1,0 +1,39 @@
+<!-- BEGIN Main Content -->
+<div class="login-wrapper">
+    <!-- BEGIN Register Form -->
+    <form id="form-register">
+        <h3>Sign up</h3>
+        <hr/>
+        <div class="control-group">
+            <div class="controls">
+                <input type="text" placeholder="Name" class="input-block-level" name="name" ng-model="register.name" required/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="text" placeholder="Email" class="input-block-level" name="email" ng-model="register.email" required/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="password" placeholder="Password" class="input-block-level" name="password" ng-model="register.password" required/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <input type="password" placeholder="Repeat Password" class="input-block-level" name="password2" ng-model="register.password2" password-match="register.password" required/>
+            </div>
+        </div>
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary input-block-level" ng-click="doRegister(register)">Sign up</button>
+            </div>
+        </div>
+        <hr/>
+        <p class="clearfix">
+            <a href="#/login" class="goto-login pull-left">← Back to login form</a>
+        </p>
+    </form>
+    <!-- END Register Form -->
+</div>
+<!-- END Main Content -->

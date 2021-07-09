@@ -1,0 +1,127 @@
+<!-- BEGIN Navbar -->
+<div id="navbar" class="navbar">
+    <div class="navbar-inner">
+        <div class="container-flid">
+            <!-- BEGIN Brand -->
+            <a href="#/dashboard" class="brand">
+                <small>
+                    <i class="icon-desktop"></i>
+                    ACCOUNT
+                </small>
+            </a>
+            <!-- END Brand -->
+
+            <!-- BEGIN Navbar Buttons -->
+            <ul class="nav flaty-nav pull-right">
+
+                <!-- BEGIN Button User -->
+                <li class="user-profile">
+                    <a data-toggle="dropdown" class="user-menu dropdown-toggle">
+                        <img class="nav-user-photo" src="images/avatar.png" alt="Penny's Photo"/>
+                        <span class="hidden-phone" id="user_info">
+                            Admin
+                        </span>
+                    </a>
+                </li>
+                <!-- END Button User -->
+
+                <!-- BEGIN Button Messages -->
+                <li class="hidden-phone">
+                    <a class="user-menu dropdown-toggle" href="#/logout">
+                        <i class="icon-off"></i>
+                        Logout
+                    </a>
+                </li>
+                <!-- END Button Messages -->
+
+            </ul>
+            <!-- END Navbar Buttons -->
+        </div>
+        <!-- /.container-flid -->
+    </div>
+    <!-- /.navbar-inner -->
+</div>
+<!-- END Navbar -->
+
+<!-- BEGIN Container -->
+<div class="container-flid" id="main-container">
+    <!-- BEGIN Content -->
+    <div id="main-content">
+        <!-- BEGIN Main Content -->
+        <div class="row-flid">
+            <div class="span12">
+                <div class="box">
+                    <div class="box-title">
+                        <h3><i class="icon-table"></i> List of accounts</h3>
+                    </div>
+                    <div class="box-content">
+                        <div class="btn-toolbar pull-right clearfix">
+                            <div class="btn-group">
+                                <a class="btn btn-circle show-tooltip" title="Add new account"
+                                   ng-click="open(account);"><i
+                                        class="icon-plus"></i></a>
+                            </div>
+                        </div>
+
+                        <div class="nav-search" id="nav-search">
+                            <span class="input-icon">
+                            <input placeholder="Filter accounts list ..." class="nav-search-input"
+                                   ng-model="filterAccount"
+                                   ng-change="resetLimit();" autocomplete="off" type="text" style="width: 300px" focus/>
+                            <i class="search-icon fa fa-search nav-search-icon"></i>
+                        </span>
+                        </div>
+
+                        <br/>
+                        <table class="table table-advance" id="table1" width="100%">
+                            <thead>
+                                <tr ng-show="accounts.length==0">
+                                    <th style="vertical-align: middle"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found
+                                    </th>
+                                </tr>
+                                <tr ng-hide="accounts.length>-1">
+                                    <th style="vertical-align: middle"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading
+                                    </th>
+                                </tr>
+
+                                <tr>
+                                    <th ng-repeat="c in columns">{{c.text}}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="c in accounts | filter:filterAccount | orderBy:'-id'" id="{{c.id}}"
+                                    animate-on-change='c.name_p + c.folder + c.url + c.ip_address + c.dba + c.email + c.username + c.password + c.datetime + c.note'
+                                    ng-animate="'animate'">
+                                    <td>{{c.id}}</td>
+                                    <td>{{c.name_p}}</td>
+                                    <td>{{c.folder}}</td>
+                                    <td><a href="{{c.url}}" target="_blank">{{c.url}}</a></td>
+                                    <td>{{c.dba}}</td>
+                                    <td>{{c.email}}</td>
+                                    <td>{{c.username}}</td>
+                                    <td>{{c.password}}</td>
+                                    <td>{{c.datetime}}</td>
+                                    <td>
+                                        <div class="btn-group">
+                                            <button type="button" class="btn btn-default fa fa-edit"
+                                                    ng-click="open(c);" title="Edit"></button>
+                                            <button type="button" class="btn btn-danger fa fa-trash-o"
+                                                    ng-click="deleteAccount(c);" title="Delete"></button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- END Main Content -->
+        <footer>
+            <p>2016 &copy; Ftp Account Admin Template.</p>
+        </footer>
+
+    </div>
+    <!-- END Content -->
+</div>
+<!-- END Container -->
